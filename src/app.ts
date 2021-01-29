@@ -1,14 +1,8 @@
 'use strict'
 
-import express, { Request, Response } from 'express'
-const app = express()
-const port = 8080
+import app from './Server'
+import { PORT } from './env'
 
-/** Entry point */
-app.get('/', (req: Request, res: Response) => {
-  res.send('Starter on air!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Express-ts-starter listening to http://localhost:${PORT}`)
 })

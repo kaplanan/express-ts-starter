@@ -27,3 +27,4 @@ coverage/
 
 # optional
 #ssl/
+.todo
