@@ -4,18 +4,20 @@
         "module": "commonjs",
         "noImplicitAny": true,
         "sourceMap": true,
+        "allowSyntheticDefaultImports": true,
         "outDir": "./dist",
+        "moduleResolution": "node",
         "strict": true,
         "alwaysStrict": true,
-        "moduleResolution": "node",
+        "removeComments": true,
+        "incremental": true,
         "baseUrl": ".",
+        "esModuleInterop": true,
         "paths": {
           "@/*": [
             "src/*"
           ]
-        },
-        "esModuleInterop": true
-
+        }
     },
     "include": [
         "src/**/*"
