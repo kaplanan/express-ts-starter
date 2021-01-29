@@ -1,7 +1,7 @@
 {
-  "name": "riddle-js",
+  "name": "express-starter-kit",
   "version": "1.0.0",
-  "description": "Starter kit for node apps with typescript support.",
+  "description": "Starter kit for express apps with typescript support.",
   "main": "dist/app.js",
   "scripts": {
     "start": "node .",
