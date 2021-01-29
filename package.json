@@ -5,7 +5,8 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "node -r dotenv/config .",
-    "build": "tsc && npx tscpaths -p tsconfig.json -s ./src -o ./dist && npm run copy-assets",
+    "clean": "npx rimraf dist/*",
+    "build": "npm run clean && tsc && npx tscpaths -p tsconfig.json -s ./src -o ./dist && npm run copy-assets",
     "copy-assets": "npx ts-node utils/copyAssets",
     "release": "npx standard-version",
     "dev:start": "npx npm-run-all build start",
@@ -39,6 +40,7 @@
     "eslint": "^7.18.0",
     "nodemon": "^2.0.7",
     "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",
     "standard-version": "^9.1.0",
     "ts-node": "^9.1.1",
