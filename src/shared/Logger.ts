@@ -2,7 +2,7 @@
 
 import { createLogger, format, transports, Logger } from 'winston'
 import { id } from 'cls-rtracer'
-import { APP_NAME } from '../env'
+import { APP_NAME } from '@/env'
 
 const tracerFormat = format((log) => {
     const trackingId = id()

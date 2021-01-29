@@ -3,16 +3,16 @@
 /** Basic */
 import express, { Request, Response, NextFunction, Express } from 'express'
 import path from 'path'
-import { baseLogger } from './shared/Logger'
+import { baseLogger } from '@/shared/Logger'
 import { expressMiddleware } from 'cls-rtracer'
 
 /** Security */
 import cors from 'cors'
 import helmet from 'helmet'
-import { CORS_ENABLED_LOCATION } from './env'
+import { CORS_ENABLED_LOCATION } from '@/env'
 
 /** API & Routes */
-import { registerRootEndpoints } from './routes'
+import { registerRootEndpoints } from '@/routes'
 
 const logger = baseLogger.child({ component: path.basename(__filename) })
 

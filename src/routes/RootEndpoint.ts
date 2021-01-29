@@ -1,7 +1,7 @@
 'use strict'
 import express, { Router, Request, Response, NextFunction } from 'express'
 import path from 'path'
-import { baseLogger } from '../shared/Logger'
+import { baseLogger } from '@/shared/Logger'
 
 const logger = baseLogger.child({ component: path.basename(__filename) })
 
