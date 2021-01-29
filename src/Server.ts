@@ -9,12 +9,12 @@ import { expressMiddleware } from 'cls-rtracer'
 /** Security */
 import cors from 'cors'
 import helmet from 'helmet'
-import { CORS_ENABLED_LOCATION } from '@/env'
 
 /** API & Routes */
 import { registerRootEndpoints } from '@/routes'
 
 const logger = baseLogger.child({ component: path.basename(__filename) })
+const corsEnabledLocation = process.env.CORS_ENABLED_LOCATION
 
 /* **********************************************************************************
  *                              Setup & configure app
@@ -24,8 +24,8 @@ const logger = baseLogger.child({ component: path.basename(__filename) })
 const app: Express = express()
 
 /** Security */
-if (CORS_ENABLED_LOCATION !== undefined) {
-    app.use(cors({ origin: CORS_ENABLED_LOCATION }))
+if (corsEnabledLocation !== undefined) {
+    app.use(cors({ origin: corsEnabledLocation }))
 }
 
 app.use(helmet({

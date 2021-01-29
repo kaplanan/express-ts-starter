@@ -2,7 +2,6 @@
 
 import { createLogger, format, transports, Logger } from 'winston'
 import { id } from 'cls-rtracer'
-import { APP_NAME } from '@/env'
 
 const tracerFormat = format((log) => {
     const trackingId = id()
@@ -21,6 +20,6 @@ export const baseLogger: Logger = createLogger({
         tracerFormat(),
         format.json()
       ),
-      defaultMeta: { service: APP_NAME },
+      defaultMeta: { service: process.env.APP_NAME },
       transports: [ new transports.Console() ]
 })
