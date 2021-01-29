@@ -2,6 +2,9 @@
 
 /** Basic */
 import express, { Request, Response, NextFunction, Express } from 'express'
+import path from 'path'
+import { baseLogger } from './shared/Logger'
+import { expressMiddleware } from 'cls-rtracer'
 
 /** Security */
 import cors from 'cors'
@@ -11,6 +14,7 @@ import { CORS_ENABLED_LOCATION } from './env'
 /** API & Routes */
 import { registerRootEndpoints } from './routes'
 
+const logger = baseLogger.child({ component: path.basename(__filename) })
 
 /* **********************************************************************************
  *                              Setup & configure app
@@ -26,11 +30,13 @@ if (CORS_ENABLED_LOCATION !== undefined) {
 
 app.use(helmet({
     contentSecurityPolicy: false
-  }))
+}))
+
+app.use(expressMiddleware())
 
 /** Route mask for logging of any incoming request */
 app.use((req: Request, res: Response, next: NextFunction) => {
-    console.log('Incoming request')
+    logger.info('Incoming request')
     next()
 })
 
