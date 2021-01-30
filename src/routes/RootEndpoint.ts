@@ -5,7 +5,7 @@ import { baseLogger } from '@/shared/Logger'
 
 const logger = baseLogger.child({ component: path.basename(__filename) })
 
-class ContentEndpoint {
+class RootEndpoint {
 
     public router: Router
 
@@ -24,4 +24,4 @@ class ContentEndpoint {
   }
 }
 
-export default ContentEndpoint
+export default RootEndpoint
