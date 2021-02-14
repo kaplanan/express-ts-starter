@@ -44,6 +44,10 @@ app.use((req: Request, res: Response, next: NextFunction) => {
  *                                     Endpoints
  ********************************************************************************** */
 
+// Set static folder
+app.use(express.static(path.join(__dirname, '../public')))
+
+// Register endpoints
 registerRootEndpoints(app)
 
 /* **********************************************************************************
